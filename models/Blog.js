@@ -12,12 +12,14 @@ Blog.init({
     title: {
         type: DataTypes.STRING,
     },
-    text: {
+    body: {
         type: DataTypes.STRING,
     },
-    date: {
+    date_created: {
         type: DataTypes.DATE,
-    },
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -34,3 +36,4 @@ Blog.init({
         modelName: 'blog'
     }
 )
+module.exports = Blog;

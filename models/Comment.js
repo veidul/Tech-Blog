@@ -13,9 +13,11 @@ Comment.init({
     text: {
         type: DataTypes.STRING,
     },
-    date: {
+    date_created: {
         type: DataTypes.DATE,
-    },
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
     blog_id:{
         type: DataTypes.INTEGER,
         references: {
@@ -39,3 +41,4 @@ Comment.init({
         modelName: 'comment'
     }
 )
+module.exports = Comment;
