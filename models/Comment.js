@@ -10,14 +10,9 @@ Comment.init({
         primaryKey: true,
         autoIncrement: true
     },
-    text: {
+    body: {
         type: DataTypes.STRING,
     },
-    date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
     blog_id:{
         type: DataTypes.INTEGER,
         references: {
