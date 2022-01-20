@@ -30,7 +30,7 @@ router.post('/', withAuth, async (req, res) =>{
 })
 
 // need to work thru this further and figure out how to update req.body.body with new input from user.
-router.put('/:id', async (req, res) =>{
+router.put('/:id', withAuth, async (req, res) =>{
     try{
         const commentData = await Comment.update(req.body, {
             where: {
@@ -57,4 +57,4 @@ router.delete('/:id', async (req, res) =>{
         res.status(500).json(err)
     }
 })
-module.exports = router;
+module.exports = router; 

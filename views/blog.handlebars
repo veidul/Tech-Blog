@@ -1,8 +1,11 @@
 <div>
-    <h2>{{title}}</h2>
-    <p>{{body}}</p>
-    <p>Created by: {{user.name}} on {{format_date createdAt}}</p>
-    <p>
-        <button class="btn btn-primary">Add Comment</button>
-    </p>
+  <h2>{{title}}</h2>
+  <p>{{body}}</p>
+  <p>Created by: {{user.name}} on {{format_date createdAt}}</p>
+  <h3>Comments</h3>
+  {{#each comments as |comment|}} {{@blog_id}}: {{this.blog_id}} {{/each}}
+
+  <p>
+    <button href="/blog" class="btn btn-primary">Add Comment</button>
+  </p>
 </div>

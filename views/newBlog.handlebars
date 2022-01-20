@@ -1,0 +1,19 @@
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>{{#if blog_body}}Update{{else}}Create{{/if}} a Blog:</h3>
+
+    <form class="form {{#if blog_body}}upd-blog-form{{else}}new-blog-form{{/if}}" data-id="{{blog_id}}">
+      <div class="form-group">
+        <label for="blog-title">Blog title:</label>
+        <textarea class="form-input" id="blog-title" name="blog-title">{{#if blog_title}}{{blog_title}}{{else}}{{/if}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="blog-body">Body:</label>
+        <textarea class="form-input" id="blog-body" name="blog-body">{{#if blog_body}}{{blog_body}}{{else}}{{/if}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary add-blog">{{#if blog_body}}Update{{else}}Create{{/if}}</button>
+      </div>
+    </form>
+  </div>
+  <script src="./js/blog.js"></script>

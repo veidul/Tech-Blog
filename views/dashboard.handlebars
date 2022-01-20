@@ -1,0 +1,31 @@
+{{#each blogs as |blog|}}
+  <div class="card blog">
+    <h5 class="card-header">Blog Title: {{blog.title}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{blog.body}}</h5>
+      <p class="card-text">Created by:
+        {{blog.user.name}}
+        on
+        {{format_date blog.createdAt}}</p>
+      <button
+        onclick="location.href = '/updateblog?blog_id={{blog.id}}&blog_body={{blog.body}}&blog_title={{blog.title}}';"
+        type="submit"
+        class="btn btn-primary"
+      >Edit Blog</button><br />
+      <button
+        class="blog-delete"
+        style="background-color: #d83535;"
+        data-id={{blog.id}}
+        type="submit"
+      >XDELETEX</button>
+    </div>
+
+  </div>
+{{/each}}
+<div class="new-blog-form">
+  <button
+    onclick="location.href = '/newBlog';"
+    type="submit"
+    class="btn btn-primary"
+  >+ Create a Blog</button>
+</div>

@@ -1,18 +1,29 @@
 
 {{#each blogs as |blog| }}
-<div class=blog>
-    <div>
-        <h2>
-            <a href="/blog/{{blog.id}}">{{blog.title}}</a>
-        </h2>
-        {{!-- need to add helper function for format_date --}}
-        <p>Created by: {{blog.user.name}} on {{format_date blog.createdAt}}</p>
-
-    </div>
-<div>
-    <p>
-        {{blog.body}}
-    </p>
+<div class="card blog">
+  <h5 class="card-header">Blog Title: {{blog.title}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{blog.body}}</h5>
+    <p class="card-text">Created by: {{blog.user.name}} on {{format_date blog.createdAt}}</p>
+    <button onclick="location.href = '/updateblog?blog_id={{blog.id}}&blog_body={{blog.body}}&blog_title={{blog.title}}';" type="submit" class="btn btn-primary">Edit Blog</button><br>
+    <button class="blog-delete btn btn-primary" style="margin:1vh;  data-id={{blog.id}} type="submit">Delete Blog</button>
+        {{# each blog.comments as |comment| }}
+        <div>
+  <div class="card">
+  <h5 class="card-header">Comment:</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{comment.body}}</h5>
+    <p class="card-text">Comment added by: {{comment.user.name}} on {{format_date blog.createdAt}}</p>
+        <button onclick="location.href = '/updatecomment?blog_id={{blog.id}}&comment_id={{comment.id}}&comment_body={{comment.body}}';" type="submit" class="btn btn-primary">Edit Comment</button><br>
+    <button class="comment-delete btn btn-primary" style="margin:1vh; data-id={{comment.id}} type="submit">Delete Comment</button>
+  </div></div>
+        {{/each}}
 </div>
+  <div class="new-comment-form">
+        <button onclick="location.href = '/newComment?blog_id={{blog.id}}';" type="submit" class="btn btn-primary">+ Add a Comment</button>
+      </div>
+  </div>
 </div>
 {{/each}}
+<script src="/js/comment.js"></script>
+<script src="/js/blog.js"></script>

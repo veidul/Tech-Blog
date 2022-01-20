@@ -1,0 +1,18 @@
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>{{#if comment_body}}Update{{else}}Create{{/if}} a comment:</h3>
+
+    <form class="form {{#if comment_body}}upd-comment-form{{else}}new-comment-form{{/if}}" data-id="{{comment_id}}">
+      <div class="form-group">
+         <div blog-id="{{blog_id}}"></div>
+        <label for="comment-body">Body:</label>
+        <textarea class="form-input" id="comment-body" name="comment-body">{{#if comment_body}}{{comment_body}}{{else}}{{/if}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{#if comment_body}}Update{{else}}Add{{/if}} Comment</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    const blog_id={{#if blog_id}}{{blog_id}}{{else}}false{{/if}}  </script>
+  <script src="./js/comment.js"></script>
